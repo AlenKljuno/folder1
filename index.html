@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body ng-app = 'app'>
+    <div ng-controller="main">
+
+        <ul>
+            <li ng-repeat="tree in treeData" ng-click="tree.show = !tree.show">
+                {{tree.name}}
+                <ul ng-show="tree.show">
+                    <li ng-repeat="children in tree.children" ng-click="$event.stopPropagation();children.show = !children.show">
+                        {{children.name}}
+                        <ul ng-show="children.show">
+                            <li ng-repeat="chil in children.children" ng-click="chil.show = !chil.show">
+                                {{chil.name}}
+
+
+                            </li>
+                        </ul>
+
+                    </li>
+                </ul>
+            </li>
+        </ul>
+
+
+
+
+    </div>
+
+
+    <script src="script.js"></script>
+</body>
+</html>
